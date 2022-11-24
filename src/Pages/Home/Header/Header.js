@@ -18,7 +18,7 @@ const Header = () => {
                     </div>
                 </div>
                 <div className="navbar-center">
-                    <Link to="/" className="font-bold text-2xl">Laptop <span className='text-orange-600'>Hut</span></Link>
+                    <Link to="/" className="font-bold text-3xl">Laptop <span className='text-orange-600'>Hut</span></Link>
                 </div>
                 <div className="navbar-end">
                     <button className="btn btn-ghost btn-circle">

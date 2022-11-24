@@ -3,7 +3,7 @@ import React from 'react';
 const AdvertisedItem = () => {
 
     return (
-        <div className="grid mt-16 mb-16 gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+        <div className="grid mt-8 gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
             <div className="card w-96 bg-base-100 shadow-xl image-full">
                 <figure><img src="https://i.dell.com/sites/csimages/Banner_Imagery/all/fp_topbannerimage_1105.png" alt="Shoes" /></figure>
                 <div className="card-body">
