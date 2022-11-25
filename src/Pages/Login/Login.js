@@ -1,22 +1,35 @@
-import React from 'react';
+import React, { useContext, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../contexts/AuthProvider';
 
 const Login = () => {
     const { register, formState: { errors }, handleSubmit } = useForm();
+    const { signIn } = useContext(AuthContext);
+    const [loginError, setLoginError] = useState('');
 
     const handleLogin = data => {
         console.log(data);
+        setLoginError('');
+        signIn(data.email, data.password)
+            .then(result => {
+                const user = result.user;
+                console.log(user);
+            })
+            .catch(error => {
+                console.log(error.message);
+                setLoginError(error.message);
+            });
     }
 
     return (
-        <div className='mt-8 mb-16 flex justify-center items-center'>
+        <div className='mt-4 mb-16 flex justify-center items-center'>
             <div className='w-96 p-7'>
                 <h1 className="text-4xl font-bold"><span className='text-orange-600'>Login</span> Now</h1>
                 <form onSubmit={handleSubmit(handleLogin)}>
                     <div className="form-control w-full max-w-xs">
                         <label className="label"> <span className="label-text">Email</span></label>
-                        <input type="text"
+                        <input type="email" placeholder='Your email'
                             {...register("email", {
                                 required: "please input your email address"
                             })}
@@ -26,7 +39,7 @@ const Login = () => {
                     </div>
                     <div className="form-control w-full max-w-xs">
                         <label className="label"> <span className="label-text">Password</span></label>
-                        <input type="password"
+                        <input type="password" placeholder='Your password'
                             {...register("password", {
                                 required: "Please input your password",
                                 minLength: { value: 6, message: 'Password must be 6 characters or longer' }
@@ -35,9 +48,9 @@ const Login = () => {
                         {errors.password && <p className='text-red-600'>{errors.password?.message}</p>}
                         <p className='text-orange-600'></p>
                     </div>
-                    <input className='btn bg-orange-600 w-full' value="Login" type="submit" />
+                    <input className='btn bg-orange-600 w-full mt-5' value="Login" type="submit" />
                     <div>
-                        <p className='text-orange-600'></p>
+                        {loginError && <p className='text-red-600'>{loginError}</p>}
                     </div>
                 </form>
                 <p className='mt-2'>Don't have an account? <Link className='text-red-600' to="/signup">Sign up</Link></p>
