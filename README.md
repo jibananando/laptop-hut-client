@@ -68,3 +68,17 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+
+Website name: Laptoop Hut
+
+live site link: 
+
+features and functionality:
+    1. used firebase 
+    2. installed react and react route dom and react hook 
+    3. Used tailwind and daisy UI 
+    4. used react icon 
+    5. useLoader, useeffect 
+    6. installed cors 
+    7. load data form mongodb
