@@ -2,6 +2,7 @@ import React, { useContext, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider';
+import SocialSignUp from '../SocialSignUp/SocialSignUp';
 
 const Login = () => {
     const { register, formState: { errors }, handleSubmit } = useForm();
@@ -55,7 +56,7 @@ const Login = () => {
                 </form>
                 <p className='mt-2'>Don't have an account? <Link className='text-red-600' to="/signup">Sign up</Link></p>
                 <div className="divider">OR</div>
-                <button className='btn btn-outline w-full'>LOGIN WITH GOOGLE</button>
+                <SocialSignUp></SocialSignUp>
             </div>
         </div>
     );

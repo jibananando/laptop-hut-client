@@ -2,14 +2,16 @@ import React, { useContext, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import toast from 'react-hot-toast';
 
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider';
+import SocialSignUp from '../SocialSignUp/SocialSignUp';
 
 
 const SignUp = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
     const { createUser, updateUser } = useContext(AuthContext);
     const [signUpError, setSignUPError] = useState('')
+    const navigate = useNavigate();
 
     const handleSignUp = (data) => {
         console.log(data);
@@ -22,6 +24,7 @@ const SignUp = () => {
                 const userInfo = {
                     displayName: data.name
                 }
+                navigate('/')
                 updateUser(userInfo)
                     .then(() => { })
                     .catch(err => console.log(err));
@@ -65,7 +68,7 @@ const SignUp = () => {
                 </form>
                 <p className='mt-2'>Already have an account <Link className='text-red-600' to="/login">Please Login</Link></p>
                 <div className="divider">OR</div>
-                <button className='btn btn-outline w-full'>CONTINUE WITH GOOGLE</button>
+                <SocialSignUp></SocialSignUp>
 
             </div>
         </div>
