@@ -81,4 +81,5 @@ features and functionality:
     4. used react icon 
     5. useLoader, useeffect 
     6. installed cors 
-    7. load data form mongodb
+    7. used react quary
+    8. load data form mongodb

@@ -122,7 +122,7 @@ const SingleItem = ({ laptop }) => {
                         </div>
                         <div className="form-control">
                             <label className="label">
-                                <span className="label-text">Location</span>
+                                <span className="label-text">Meeting Location</span>
                             </label>
                             <input
                                 type="text"
