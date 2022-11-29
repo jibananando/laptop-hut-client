@@ -77,7 +77,68 @@ const SingleItem = ({ laptop }) => {
                     }
                 </div>
             </div>
+            {/* Modal */}
+            <input type="checkbox" id={`bookNow${_id}`} className="modal-toggle" />
+            <div className="modal">
+                <div className="modal-box relative">
+                    <label htmlFor={`bookNow${_id}`} className="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
+                    <h3 className="text-lg font-bold">{name}</h3>
+                    <p><span className=' font-semibold'>Resale Price:</span> {resalePrice}</p>
+                    <form onSubmit={handleFormSubmit}>
+                        <div className="form-control">
+                            <label className="label">
+                                <span className="label-text">Name</span>
+                            </label>
+                            <input
+                                type="text"
+                                name='buyerName'
+                                value={user?.displayName}
+                                className="input input-bordered"
+                                disabled
+                            />
+                        </div>
+                        <div className="form-control">
+                            <label className="label">
+                                <span className="label-text">Email</span>
+                            </label>
+                            <input
+                                type="text"
+                                name='buyerEmail'
+                                value={user?.email}
+                                className="input input-bordered"
+                                disabled
+                            />
+                        </div>
+                        <div className="form-control">
+                            <label className="label">
+                                <span className="label-text">Phone Number</span>
+                            </label>
+                            <input
+                                type="text"
+                                name='phone'
+                                className="input input-bordered"
+                                required
+                            />
+                        </div>
+                        <div className="form-control">
+                            <label className="label">
+                                <span className="label-text">Location</span>
+                            </label>
+                            <input
+                                type="text"
+                                name='meetingLocation'
+                                className="input input-bordered"
+                                required
+                            />
+                        </div>
+                        <button className="btn btn-outline my-4 text-orange-600">
+                            <label htmlFor={`bookNow${_id}`} >Submit</label>
+                        </button>
 
+
+                    </form>
+                </div>
+            </div>
         </div>
     );
 };
