@@ -1,5 +1,4 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider';
 
 const Myorders = () => {
@@ -7,7 +6,7 @@ const Myorders = () => {
     const [tableData, setTableData] = useState([]);
 
     const getData = () => {
-        fetch(`/booking?email=${user?.email}`)
+        fetch(`http://localhost:5000/myorders?email=${user?.email}`)
             .then(res => res.json())
             .then(data => setTableData(data))
     }
