@@ -20,7 +20,7 @@ const Header = () => {
         </React.Fragment>
 
     return (
-        <div className='container mx-auto mb-3 mt-3 mr-2'>
+        <div className='container mx-auto mb-3 mt-3 mr-4'>
             <div className="navbar bg-base-100">
                 <div className="navbar-start">
                     <img className='h-8 w-8' src="https://static.vecteezy.com/system/resources/thumbnails/006/756/075/small_2x/laptop-sale-icon-style-vector.jpg" alt="" />

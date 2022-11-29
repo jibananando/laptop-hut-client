@@ -83,3 +83,13 @@ features and functionality:
     6. installed cors 
     7. used react quary
     8. load data form mongodb
+
+    adminEmail: <pramanik@gamil.com>
+    adminPassword: <Pramanik123@>
+
+    buyerEmail: <neymar@gmail.com>
+    buyerPassword: <Neymar123@>
+
+    sellerEmail: <zahid@gmail.com>
+    sellerPassword: <Zahid123@>
+
