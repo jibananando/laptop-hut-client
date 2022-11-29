@@ -5,7 +5,7 @@ import { AuthContext } from '../../contexts/AuthProvider';
 const SingleItem = ({ laptop }) => {
     const { user } = useContext(AuthContext);
 
-    const { _id, name, img, category, location, resalePrice, originalPrice, UsedYears, postedTime, sellerName, isSellerVerify, sellerEmail, status, description, condition } = laptop;
+    const { _id, name, img, category, location, resalePrice, originalPrice, UsedMonth, postedTime, sellerName, isSellerVerify, sellerEmail, status, description, condition } = laptop;
 
     const handleFormSubmit = (e) => {
         e.preventDefault();
@@ -56,21 +56,21 @@ const SingleItem = ({ laptop }) => {
                 src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRJa68wCITmafhsSxRUlXRuhvTmO7FmLj2Veg&usqp=CAU"
                 alt="Album" /></figure>
             <div className="card-body">
-                <h2 className="card-title">{name}</h2>
+                <h2 className="card-title font-bold text-orange-600">{name}</h2>
                 <div className='grid grid-cols-3 text-left gap-2'>
-                    <p><span className='font-semibold'>Category:</span> {category}</p>
-                    <p>resale Price: {resalePrice}</p>
-                    <p>Original Price: {originalPrice}</p>
-                    <p>Years of Used: {UsedYears}</p>
-                    <p>Location: {location}</p>
-                    <p>Posted Time: {postedTime}</p>
-                    <p>Seller Name: {sellerName}</p>
-                    <p>Seller Verify: {isSellerVerify ? 'verified' : 'unverified'}</p>
-                    <p>Seller Email: {sellerEmail}</p>
-                    <p>Status: {status}</p>
-                    <p>Condition: {condition}</p>
+                    <p><span className='font-semibold'>Seller Name: </span>{sellerName}</p>
+                    <p><span className='font-semibold'>Seller Email: </span>{sellerEmail}</p>
+                    <p><span className='font-semibold'>Seller Verify: </span>{isSellerVerify ? 'verified' : 'unverified'}</p>
+                    <p><span className='font-semibold'>Brand:</span> {category}</p>
+                    <p><span className='font-semibold'>Used: </span>{UsedMonth} Month</p>
+                    <p><span className='font-semibold'>Location: </span>{location}</p>
+                    <p><span className='font-semibold'>Posted Time: </span>{postedTime}</p>
+                    <p><span className='font-semibold'>Status: </span>{status}</p>
+                    <p><span className='font-semibold'>Condition: </span>{condition}</p>
+                    <p><span className='font-semibold'>Original Price: </span>{originalPrice} Tk</p>
+                    <p><span className='font-semibold'>Resale Price:</span> {resalePrice} Tk</p>
                 </div>
-                <p className='text-left my-4'>Description: {description}</p>
+                <p className='text-left my-4 '><span className='font-semibold'>Description: </span>{description}</p>
                 <div className="card-actions justify-end">
                     {
                         (isSellerVerify && status !== 'Sold') && <label htmlFor={`bookNow${_id}`} className="btn btn-outline text-orange-600">Book Now</label>
@@ -82,7 +82,7 @@ const SingleItem = ({ laptop }) => {
             <div className="modal">
                 <div className="modal-box relative">
                     <label htmlFor={`bookNow${_id}`} className="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
-                    <h3 className="text-lg font-bold">{name}</h3>
+                    <h3 className="text-lg font-bold text-orange-600">{name}</h3>
                     <p><span className=' font-semibold'>Resale Price:</span> {resalePrice}</p>
                     <form onSubmit={handleFormSubmit}>
                         <div className="form-control">
