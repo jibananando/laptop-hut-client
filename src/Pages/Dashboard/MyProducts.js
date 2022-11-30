@@ -6,7 +6,7 @@ const MyProducts = () => {
     const [tableData, setTableData] = useState([]);
 
     const getData = () => {
-        fetch(`http://localhost:5000/myproducts?email=${user?.email}`)
+        fetch(`https://laptop-hut-server-tawny.vercel.app/myproducts?email=${user?.email}`)
             .then(res => res.json())
             .then(data => setTableData(data))
     }

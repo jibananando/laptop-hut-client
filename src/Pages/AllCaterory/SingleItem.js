@@ -29,7 +29,7 @@ const SingleItem = ({ laptop }) => {
             pay: 'UnPaid',
         }
 
-        fetch('http://localhost:5000/booking', {
+        fetch('https://laptop-hut-server-tawny.vercel.app/booking', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',
@@ -51,10 +51,11 @@ const SingleItem = ({ laptop }) => {
 
     return (
         <div className="card lg:card-side bg-base-100 shadow-xl">
-            <figure><img
-                // src={img}
-                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRJa68wCITmafhsSxRUlXRuhvTmO7FmLj2Veg&usqp=CAU"
-                alt="Album" /></figure>
+            <figure><img className='w-[300px] h-[200px] mx-auto '
+                src={img}
+                alt=''
+            />
+            </figure>
             <div className="card-body">
                 <h2 className="card-title font-bold text-orange-600">{name}</h2>
                 <div className='grid grid-cols-3 text-left gap-2'>

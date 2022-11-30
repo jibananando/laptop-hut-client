@@ -10,7 +10,7 @@ const AllCategory = () => {
 
     useEffect(() => {
 
-        fetch(`http://localhost:5000/products?category=${name}`)
+        fetch(`https://laptop-hut-server-tawny.vercel.app/products?category=${name}`)
             .then(res => res.json())
             .then(data => {
                 setLaptops(data);
