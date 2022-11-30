@@ -72,7 +72,7 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 
 Website name: Laptoop Hut
 
-live site link: 
+live site link: https://laptop-hut-104d4.web.app
 
 features and functionality:
     1. used firebase 
