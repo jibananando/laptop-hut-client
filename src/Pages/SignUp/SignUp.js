@@ -9,7 +9,7 @@ import SocialSignUp from '../SocialSignUp/SocialSignUp';
 
 const SignUp = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
-    const { createUser, updateUser } = useContext(AuthContext);
+    const { createUser, updateUser, loading } = useContext(AuthContext);
     const [signUpError, setSignUPError] = useState('')
     const navigate = useNavigate();
 
@@ -68,6 +68,11 @@ const SignUp = () => {
                 </form>
                 <p className='mt-2'>Already have an account <Link className='text-red-600' to="/login">Please Login</Link></p>
                 <div className="divider">OR</div>
+                {
+                    loading &&
+                    <progress className="progress w-56"></progress>
+
+                }
                 <SocialSignUp></SocialSignUp>
 
             </div>

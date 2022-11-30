@@ -3,6 +3,7 @@ import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthProvider";
 import { FcGoogle } from 'react-icons/fc';
+import toast from "react-hot-toast";
 
 
 const SocialSignUp = () => {
@@ -18,6 +19,7 @@ const SocialSignUp = () => {
                 const user = result.user;
                 console.log(user);
                 navigate('/')
+                toast('login successfully')
             })
             .catch(error => {
                 console.error(error);

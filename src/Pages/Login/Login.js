@@ -1,13 +1,16 @@
 import React, { useContext, useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { Link } from 'react-router-dom';
+import toast from 'react-hot-toast';
+import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider';
 import SocialSignUp from '../SocialSignUp/SocialSignUp';
 
+
 const Login = () => {
     const { register, formState: { errors }, handleSubmit } = useForm();
-    const { signIn } = useContext(AuthContext);
+    const { signIn, loading } = useContext(AuthContext);
     const [loginError, setLoginError] = useState('');
+    const navigate = useNavigate();
 
     const handleLogin = data => {
         console.log(data);
@@ -16,7 +19,10 @@ const Login = () => {
             .then(result => {
                 const user = result.user;
                 console.log(user);
+                navigate('/')
+                toast('login successfully')
             })
+
             .catch(error => {
                 console.log(error.message);
                 setLoginError(error.message);
@@ -56,6 +62,11 @@ const Login = () => {
                 </form>
                 <p className='mt-2'>Don't have an account? <Link className='text-red-600' to="/signup">Sign up</Link></p>
                 <div className="divider">OR</div>
+                {
+                    loading &&
+                    <progress className="progress w-56"></progress>
+
+                }
                 <SocialSignUp></SocialSignUp>
             </div>
         </div>
