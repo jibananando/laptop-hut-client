@@ -13,6 +13,9 @@ const SignUp = () => {
     const [signUpError, setSignUPError] = useState('')
     const navigate = useNavigate();
 
+
+    const [role, setRole] = useState('buyer');
+
     const handleSignUp = (data) => {
         console.log(data);
         setSignUPError('');
@@ -24,9 +27,12 @@ const SignUp = () => {
                 const userInfo = {
                     displayName: data.name
                 }
-                navigate('/')
+
                 updateUser(userInfo)
-                    .then(() => { })
+                    .then(() => {
+                        navigate('/')
+                        console.log("update", user);
+                    })
                     .catch(err => console.log(err));
             })
             .catch(error => {
@@ -40,6 +46,33 @@ const SignUp = () => {
             <div className='w-96 p-7'>
                 <h1 className="text-4xl font-bold"><span className='text-orange-600'>Sign Up</span> Now</h1>
                 <form onSubmit={handleSubmit(handleSignUp)}>
+                    <div className="form-control w-full grid grid-cols-3 gap-4 mt-4">
+                        <label className="label"> <span className="label-text">Role:</span></label>
+                        <div className="form-control">
+                            <label className="label cursor-pointer justify-evenly">
+                                <span className="label-text">Buyer</span>
+                                <input
+                                    type="radio"
+                                    name="role"
+                                    className="radio checked:bg-orange-600"
+                                    checked={role === 'buyer'}
+                                    onChange={() => setRole('buyer')}
+                                />
+                            </label>
+                        </div>
+                        <div className="form-control">
+                            <label className="label cursor-pointer justify-evenly">
+                                <span className="label-text">Seller</span>
+                                <input
+                                    type="radio"
+                                    name="role"
+                                    className="radio  checked:bg-orange-600"
+                                    checked={role === 'seller'}
+                                    onChange={() => setRole('seller')}
+                                />
+                            </label>
+                        </div>
+                    </div>
                     <div className="form-control w-full max-w-xs">
                         <label className="label"> <span className="label-text">Name</span></label>
                         <input type="text" placeholder='Input your name' {...register("name", {

@@ -6,7 +6,6 @@ const SingleItem = ({ laptop }) => {
     const { user } = useContext(AuthContext);
 
     const { _id, name, img, category, location, resalePrice, originalPrice, UsedMonth, postedTime, sellerName, isSellerVerify, sellerEmail, status, description, condition } = laptop;
-
     const handleFormSubmit = (e) => {
         e.preventDefault();
         const form = e.target;
