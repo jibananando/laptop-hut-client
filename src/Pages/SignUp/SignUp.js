@@ -30,10 +30,33 @@ const SignUp = () => {
 
                 updateUser(userInfo)
                     .then(() => {
-                        navigate('/')
-                        console.log("update", user);
+                        const loginData = {
+                            userName: user?.displayName,
+                            email: user?.email,
+                            role: role,
+                            isSellerVerify: false,
+                        };
+
+                        console.log(loginData);
+
+                        if (user?.uid) {
+                            fetch(`https://laptop-hut-server-tawny.vercel.app/user/${user?.email}`, {
+                                method: 'PUT',
+                                headers: {
+                                    'content-type': 'application/json'
+                                },
+                                body: JSON.stringify(loginData)
+                            })
+                                .then(res => res.json())
+                                .then(data => {
+                                    localStorage.setItem('token', data.token)
+                                    console.log(data);
+                                })
+                            toast.message('User Created Successfully.');
+                        }
                     })
                     .catch(err => console.log(err));
+                navigate('/');
             })
             .catch(error => {
                 console.log(error);

@@ -1,13 +1,26 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { FaSearchLocation, FaPhone, FaEnvelope, } from 'react-icons/fa';
+
 
 const Footer = () => {
     return (
         <div>
             <footer className="footer p-10 bg-base-200 text-base-content">
                 <div>
-                    <span className="footer-title text-2xl text-orange-600">Laptop Hut</span>
-                    <p>1203 Town Center<br />Drive FL 33458 USA <br />+0000 123 456 789<br />info@laptophut.com</p>
+                    <h1 className="footer-title text-2xl"><span className='text-orange-600'>Laptop </span>Hut</h1>
+                    <div className="flex items-center mb-2">
+                        <FaSearchLocation className="mr-2" />
+                        <p>1203 Town Center Drive FL 33458 USA</p>
+                    </div>
+                    <div className="flex items-center mb-2">
+                        <FaPhone className="mr-2" />
+                        <p>+1 123 456 7890</p>
+                    </div>
+                    <div className="flex items-center">
+                        <FaEnvelope className="mr-2" />
+                        <p>info@example.com</p>
+                    </div>
                 </div>
                 <div>
                     <span className="footer-title text-xl">Help</span>

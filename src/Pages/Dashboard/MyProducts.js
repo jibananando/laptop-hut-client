@@ -1,4 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
+import toast from 'react-hot-toast';
 import { AuthContext } from '../../contexts/AuthProvider';
 
 const MyProducts = () => {
@@ -13,6 +14,27 @@ const MyProducts = () => {
     useEffect(() => {
         getData();
     }, [user?.uid])
+
+    const handleDelete = (id) => {
+        console.log(id);
+        fetch(`https://laptop-hut-server-tawny.vercel.app/deleteProduct/${id}`, {
+            method: 'DELETE',
+            headers: {
+                'content-type': 'application/json'
+            },
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+
+                if (data?.message) {
+                    toast(data.message);
+                } else {
+                    toast('Deleted successfully');
+                    getData();
+                }
+            });
+    };
 
     return (
         <div className='w-11/12 mx-auto'>
@@ -43,6 +65,9 @@ const MyProducts = () => {
                                     <td>{item.name}</td>
                                     <td>{item.resalePrice}</td>
                                     <td>{item.status}</td>
+                                    <td>
+                                        <button onClick={() => handleDelete(item._id)} className="btn btn-sm btn-error">delete</button>
+                                    </td>
                                 </tr>)
                             }
 
